@@ -2,6 +2,7 @@
 import sys
 import subprocess
 import smtplib
+import os
 from email.mime.text import MIMEText
 
 try:
