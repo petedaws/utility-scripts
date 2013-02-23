@@ -1,14 +1,17 @@
 #! /usr/bin/python
-
+import sys
 import subprocess
 import smtplib
 from email.mime.text import MIMEText
 
 try:
-	conf = eval(sys.argv[1])
+	conf = eval(open(sys.argv[1],'rb').read())
 except:
+	print 'config file error'
 	exit()
 	
+output = ''
+subject = ''
 if not conf['password']:
 	conf['password'] = open('%s.password' % conf['email'],'rb').read()
 
