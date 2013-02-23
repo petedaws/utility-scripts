@@ -13,7 +13,7 @@ except:
 output = ''
 subject = ''
 if not conf['password']:
-	conf['password'] = open('%s.password' % conf['email'],'rb').read()
+	conf['password'] = open(os.path.join(os.path.dirname(sys.argv[1]),'%s.password' % conf['email']),'rb').read()
 
 for backup in conf['backups']:
 	command = 'rsync -avz -e "ssh -p %i" %s@%s:%s %s' % (conf['port'],

@@ -4,6 +4,7 @@ import smtplib
 import time
 import socket
 import sys
+import os
 from email.mime.text import MIMEText
 
 try:
@@ -13,7 +14,7 @@ except:
 	exit()
 	
 if not conf['password']:
-	conf['password'] = open('%s.password' % conf['email'],'rb').read()
+	conf['password'] = open(os.path.join(os.path.dirname(sys.argv[1]),'%s.password' % conf['email']),'rb').read()
 
 name = socket.gethostname()
 time = time.strftime('%Y-%m-%d %H:%M',time.localtime())
