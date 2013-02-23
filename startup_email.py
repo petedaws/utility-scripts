@@ -11,6 +11,9 @@ try:
 except:
 	print 'config file error'
 	exit()
+	
+if not conf['password']:
+	conf['password'] = open('%s.password' % conf['email'],'rb').read()
 
 name = socket.gethostname()
 time = time.strftime('%Y-%m-%d %H:%M',time.localtime())
