@@ -39,6 +39,6 @@ msg['From'] = conf['email_source']
 
 s = smtplib.SMTP(conf['email_server'])
 s.starttls()
-s.login(conf['email'],password)
+s.login(conf['email'],conf['password'])
 s.sendmail(conf['email_source'],[conf['email_out']],msg.as_string())
 s.quit()
