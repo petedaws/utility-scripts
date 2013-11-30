@@ -17,7 +17,7 @@ if not conf['password']:
 	conf['password'] = open(os.path.join(os.path.dirname(sys.argv[1]),'%s.password' % conf['email']),'rb').read()
 
 for backup in conf['backups']:
-	command = 'rsync -rtOvuhz -e "ssh -p %i" %s@%s:%s %s' % (conf['port'],
+	command = 'rsync -rtOvuh -e "ssh -p %i" %s@%s:%s %s' % (conf['port'],
 	                                                     conf['user'],
 														 conf['host'],
 														 backup['src'],
